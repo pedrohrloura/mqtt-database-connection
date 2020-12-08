@@ -6,17 +6,17 @@ var moment = require('moment');
 
 //DATABASE
 var config = {
-    server: process.env.DB_SERVER,
+    server: process.env.DB_SERVER, //update me
     authentication: {
         options: {
-            userName: process.env.DB_USERNAME,
-            password: process.env.DB_PASSWORD
+            userName: process.env.DB_USERNAME, //update me
+            password: process.env.DB_PASSWORD //update me
         },
         type: "default"
     },
     options: {
         validateBulkLoadParameters: true,
-        database: process.env.DB_DATABASE,
+        database: process.env.DB_DATABASE, //update me
         encrypt: true,
         trustServerCertificate: true
     }
@@ -58,11 +58,11 @@ function updateLastFood(codAquario) {
 //MQTT
 options = {
     clientId: "mqttjs01",
-    username: process.env.MQTT_USERNAME,
-    password: process.env.MQTT_PASSWORD,
+    username: process.env.MQTT_USERNAME, //update me
+    password: process.env.MQTT_PASSWORD, //update me
     clean: true
 };
-var client = mqtt.connect(process.env.MQTT_HOST, options)
+var client = mqtt.connect(process.env.MQTT_HOST, options) //update me
 
 client.on("connect", function () {
     console.log("Connected to MQTT");
@@ -85,7 +85,7 @@ client.on("error", function (error) {
     console.log("Can't connect" + error);
     process.exit(1)
 });
-var tempTopic = process.env.TOPIC_TEMP
-var foodTopic = process.env.TOPIC_FOOD
+var tempTopic = process.env.TOPIC_TEMP //update me
+var foodTopic = process.env.TOPIC_FOOD //update me
 client.subscribe(tempTopic, { qos: 1 });
 client.subscribe(foodTopic, { qos: 1 });
